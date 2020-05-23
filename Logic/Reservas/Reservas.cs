@@ -45,7 +45,7 @@ namespace Logic.Reservas
             {
                 int idReservaActiva = (int) EstadosReserva.Activos;
                 int idReservaMora = (int)EstadosReserva.ReservaMora;
-                dataDashboard.CantidadReserva = _context.Reserva.Where(x => x.IdEstadoReserva != idReservaActiva).ToList().Count();
+                dataDashboard.CantidadReserva = _context.Reserva.Where(x => x.IdEstadoReserva == idReservaActiva).ToList().Count();
                 dataDashboard.CantidadMora = _context.Reserva.Where(x => x.IdEstadoReserva == idReservaMora).ToList().Count();
                 dataDashboard.CantidadUsuarios = _context.Usuario.Where(x => x.Estado).ToList().Count();
                 dataDashboard.CantidadDisponibles = _context.Libro.Where(x => x.Disponible).ToList().Count();
